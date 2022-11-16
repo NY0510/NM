@@ -1,4 +1,4 @@
-<center><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=NM%&fontSize=65&fontAlignY=35&animation=twinkling&fontColor=gradient&fontColor=b5b5b5" /></center>
+<center><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=NM%&fontSize=65&fontAlignY=35&animation=twinkling&fontColor=b8b8b8" /></center>
 
 # NM, Lavalink Discord Music Bot
 
