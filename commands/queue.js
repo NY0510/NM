@@ -18,14 +18,16 @@ module.exports = {
 		const e = new EmbedBuilder().setTitle("📋 현재 대기열").setColor(process.env.COLOR_NORMAL);
 
 		const tracks = queue.slice(0, 30);
+		const restTracks = queue.length - tracks.length;
 
 		if (queue.current) {
 			title = textLengthOverCut(queue.current.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...");
 
 			e.setDescription(
-				`**💿 [${title}](${queue.current.uri})**\n\n${tracks
-					.map((track, i) => `**${i + 1}. [${textLengthOverCut(track.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...")}](${track.uri})**`)
-					.join("\n")}`
+				`**💿 [${title}](${queue.current.uri})**\n\n${
+					tracks.map((track, i) => `**${i + 1}. [${textLengthOverCut(track.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...")}](${track.uri})**`).join("\n") +
+					(restTracks > 0 ? `\n\n**+${restTracks}곡**` : "")
+				}`
 			);
 		}
 
