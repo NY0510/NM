@@ -1,6 +1,6 @@
 # NM, Lavalink Discord Music Bot
 
-![Screenshot](https://media.discordapp.net/attachments/937373622614515732/1042340198073237525/image.png)
+<center><img src="https://media.discordapp.net/attachments/937373622614515732/1042340198073237525/image.png" width="300" height="300" alt="Screenshot"></center>
 
 ## Installation Guide
 
