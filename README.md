@@ -1,6 +1,11 @@
+<center><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=NM Music Bot&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" /></center>
+
 # NM, Lavalink Discord Music Bot
 
-<center><img src="https://media.discordapp.net/attachments/937373622614515732/1042340198073237525/image.png" height="300" alt="Screenshot"></center>
+<p align="center">
+  <a href="https://github.com/NY0510/NM">
+    <img src="https://media.discordapp.net/attachments/937373622614515732/1042340198073237525/image.png" alt="Screenshot"  height="300">
+  </a>
 
 ## Installation Guide
 
