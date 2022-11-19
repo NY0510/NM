@@ -4,7 +4,7 @@ const { textLengthOverCut } = require("../utils/textLengthOverCut");
 
 module.exports = {
 	name: "queue",
-	aliases: ["큐", "대기열", "재생목록", "벼뎓", "q"],
+	aliases: ["큐", "대기열", "재생목록", "벼뎓", "q", "ㅂ"],
 
 	run: async (client, message, args) => {
 		const player = client.manager.get(message.guild.id);
