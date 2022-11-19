@@ -4,7 +4,7 @@ const helpData = require("../data/help.json");
 
 module.exports = {
 	name: "help",
-	aliases: ["도움말", "명령어", "ㅗ디ㅔ"],
+	aliases: ["도움말", "명령어", "ㅗ디ㅔ", "h", "도움!"],
 
 	run: async (client, message, args) => {
 		let commands = "";
