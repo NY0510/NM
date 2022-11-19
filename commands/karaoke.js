@@ -1,8 +1,5 @@
 require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
-const { timeFormat } = require("../utils/timeFormat");
-const { textLengthOverCut } = require("../utils/textLengthOverCut");
-const { progressBar } = require("../utils/progressBar");
 
 module.exports = {
 	name: "karaoke",

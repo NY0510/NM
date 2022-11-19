@@ -1,8 +1,5 @@
 require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
-const { timeFormat } = require("../utils/timeFormat");
-const { textLengthOverCut } = require("../utils/textLengthOverCut");
-const { progressBar } = require("../utils/progressBar");
 
 module.exports = {
 	name: "bassboost",
@@ -31,8 +28,6 @@ module.exports = {
 		const bands = new Array(3).fill(null).map((_, i) => ({ band: i, gain: bass }));
 		player.setEQ(...bands);
 		player.customBassboost = !player.customBassboost;
-
-		console.log(bass);
 
 		return message.reply({
 			embeds: [
