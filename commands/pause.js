@@ -26,7 +26,7 @@ module.exports = {
 			});
 
 		if (player.paused)
-			return interaction.reply({
+			return message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음악이 이미 일시정지 상태에요!**`).setColor(process.env.COLOR_ERROR)],
 			});
 
