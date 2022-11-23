@@ -32,7 +32,7 @@ module.exports = {
 		if (!player.rotation) speed = speed * 0.1;
 		else speed = 0;
 
-		console.log(speed);
+		// console.log(speed);
 
 		player.node.send({
 			op: "filters",

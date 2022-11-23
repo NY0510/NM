@@ -2,6 +2,7 @@ require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
 const { timeFormat } = require("../utils/timeFormat");
 const { textLengthOverCut } = require("../utils/textLengthOverCut");
+const { urlRegex } = require("../utils/urlRegex");
 
 module.exports = {
 	name: "play",
@@ -44,6 +45,9 @@ module.exports = {
 			return message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **검색어를 입력해주세요!**`).setColor(process.env.COLOR_ERROR)],
 			});
+
+		if (!urlRegex(query))
+			return message.reply({ embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **지원되는 URL이 아니에요**`).setColor(process.env.COLOR_ERROR)] });
 
 		let res;
 
