@@ -46,8 +46,8 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **검색어를 입력해주세요!**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		if (!urlRegex(query))
-			return message.reply({ embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **지원되는 URL이 아니에요**`).setColor(process.env.COLOR_ERROR)] });
+		// if (!urlRegex(query))
+		// 	return message.reply({ embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **지원되는 URL이 아니에요**`).setColor(process.env.COLOR_ERROR)] });
 
 		let res;
 
