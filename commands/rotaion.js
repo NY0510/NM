@@ -23,9 +23,9 @@ module.exports = {
 			});
 
 		let speed = Math.round(args[0], 1) || 2;
-		if (speed < 1 || speed > 10)
+		if (speed < 1 || speed > 30)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 1에서 10사이의 숫자만 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 1에서 30사이의 숫자만 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 				ephemeral: true,
 			});
 
@@ -46,7 +46,9 @@ module.exports = {
 		return message.reply({
 			embeds: [
 				new EmbedBuilder()
-					.setDescription(`${process.env.EMOJI_CHECK} **3D 오디오 효과를 ${player.rotation ? "설정" : "해제"}했어요! ${player.rotation ? `(${speed * 10})` : ""}**`)
+					.setDescription(
+						`${process.env.EMOJI_CHECK} **3D 오디오 효과를 ${player.rotation ? "설정" : "해제"}했어요! ${player.rotation ? `(${Math.round1(speed * 10)})` : ""}**`
+					)
 					.setColor(process.env.COLOR_NORMAL),
 			],
 		});
