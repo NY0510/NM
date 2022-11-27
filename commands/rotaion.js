@@ -47,7 +47,7 @@ module.exports = {
 			embeds: [
 				new EmbedBuilder()
 					.setDescription(
-						`${process.env.EMOJI_CHECK} **3D 오디오 효과를 ${player.rotation ? "설정" : "해제"}했어요! ${player.rotation ? `(${Math.round1(speed * 10)})` : ""}**`
+						`${process.env.EMOJI_CHECK} **3D 오디오 효과를 ${player.rotation ? "설정" : "해제"}했어요! ${player.rotation ? `(${Math.round(speed * 10)})` : ""}**`
 					)
 					.setColor(process.env.COLOR_NORMAL),
 			],
