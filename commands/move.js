@@ -2,8 +2,8 @@ require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-	name: "seek",
-	aliases: ["ㄴㄷ다"],
+	name: "move",
+	aliases: ["ㅡㅐㅍㄷ", "이동"],
 
 	run: async (client, message, args) => {
 		const player = client.manager.get(message.guild.id);

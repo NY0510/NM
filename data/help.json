@@ -16,10 +16,6 @@
 		"description": "현재 재생중인 노래를 중지하고 대기열을 초기화해요"
 	},
 	{
-		"cmd": "leave",
-		"description": "현재 재생중인 노래를 중지하고 음성채널을 나가요"
-	},
-	{
 		"cmd": "volume",
 		"description": "볼륨을 설정해요"
 	},
@@ -38,6 +34,10 @@
 	{
 		"cmd": "resume",
 		"description": "일시정지된 노래를 다시 재생해요"
+	},
+	{
+		"cmd": "move",
+		"description": "현재 재생중인 음악의 재생시간을 이동해요"
 	},
 	{
 		"cmd": "bassboost",
