@@ -40,6 +40,10 @@
 		"description": "현재 재생중인 음악의 재생시간을 이동해요"
 	},
 	{
+		"cmd": "seek",
+		"description": "현재 재생중인 음악의 재생시간을 스킵해요"
+	},
+	{
 		"cmd": "bassboost",
 		"description": "베이스 부스트를 설정해요"
 	},
