@@ -30,6 +30,12 @@ module.exports = async (client, oldState, newState) => {
 	// 봇을 기준으로 현재 사용자 필터링
 	stateChange.members = stateChange.channel.members.filter(member => !member.user.bot);
 
+	// 봇이 강퇴되었을 경우
+	if (stateChange.type === "LEAVE" && stateChange.members.size === 0) {
+		client.channels.cache.get(player.textChannel).send("Asf");
+		return player.destroy();
+	}
+
 	switch (stateChange.type) {
 		case "JOIN":
 			if (stateChange.members.size === 1 && player.paused) {

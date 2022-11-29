@@ -32,7 +32,7 @@ module.exports = {
 			});
 
 		// 음성채널 접속
-		if (player.state != "CONNECTED") {
+		if (player.state != "CONNECTED" && player.state != "CONNECTING") {
 			await player.connect();
 			await message.reply({
 				embeds: [
