@@ -26,7 +26,7 @@ module.exports = client => {
 				const bindChannel = client.channels.cache.get(player.textChannel);
 				const logChannel = client.channels.cache.get(process.env.MUSIC_LOG_CHANNEL_ID);
 
-				bindChannel.send({ embeds: [new EmbedBuilder().setDescription(`🎵 ** ${track.title}**`).setColor(process.env.COLOR_NORMAL)] });
+				if (!player.trackRepeat) bindChannel.send({ embeds: [new EmbedBuilder().setDescription(`🎵 ** ${track.title}**`).setColor(process.env.COLOR_NORMAL)] });
 				console.log(
 					`[Music] ${track.title} is playing in ${bindChannel.guild.name} (${bindChannel.guild.id}) by ${track.requester.username}#${track.requester.discriminator} (${track.requester.id})`
 				);
