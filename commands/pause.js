@@ -15,10 +15,10 @@ module.exports = {
 
 		const { channel } = message.member.voice;
 
-		if (!channel)
-			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
-			});
+		// if (!channel)
+		// 	return message.reply({
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 	});
 
 		if (channel.id !== player.voiceChannel)
 			return message.reply({
