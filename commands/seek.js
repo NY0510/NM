@@ -41,8 +41,6 @@ module.exports = {
 			});
 
 		player.seek(seconds * 1000);
-		message.reply({
-			embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **${seconds}초를 스킵했어요**`).setColor(process.env.COLOR_SUCCESS)],
-		});
+		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏩ **${args[0]}**초로 이동했어요!`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };
