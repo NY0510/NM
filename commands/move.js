@@ -40,7 +40,14 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **올바른 형식으로 시간을 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		player.seek(seconds * 1000);
+		try {
+			player.seek(seconds * 1000);
+		} catch (RangeError) {
+			return message.reply({
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **올바른 형식으로 시간을 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
+			});
+		}
+
 		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏩ **${args[0]}**초로 이동했어요!`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };
