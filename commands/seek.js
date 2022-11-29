@@ -3,7 +3,7 @@ const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "seek",
-	aliases: ["스킵", "skip", "ㄴㄷ다", "나ㅑㅔ"],
+	aliases: ["ㄴㄷ다"],
 
 	run: async (client, message, args) => {
 		const player = client.manager.get(message.guild.id);
