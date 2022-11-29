@@ -9,6 +9,11 @@ module.exports = async (client, oldState, newState) => {
 	// 채널에 연결되어 있는지 체크
 	if (!player || player.state !== "CONNECTED") return;
 
+	// 봇 강퇴당했을때
+	if (oldState.channelId && !newState.channelId && newState.id === client.user.id) {
+		return player.destroy();
+	}
+
 	// 비교대조할 데이터 미리 준비
 	const stateChange = {};
 	if (oldState.channel === null && newState.channel !== null) stateChange.type = "JOIN";
@@ -29,12 +34,6 @@ module.exports = async (client, oldState, newState) => {
 
 	// 봇을 기준으로 현재 사용자 필터링
 	stateChange.members = stateChange.channel.members.filter(member => !member.user.bot);
-
-	// 봇이 강퇴되었을 경우
-	if (stateChange.type === "LEAVE" && stateChange.members.size === 0) {
-		client.channels.cache.get(player.textChannel).send("Asf");
-		return player.destroy();
-	}
 
 	switch (stateChange.type) {
 		case "JOIN":
