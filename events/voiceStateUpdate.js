@@ -31,7 +31,7 @@ module.exports = async (client, oldState, newState) => {
 	stateChange.members = stateChange.channel.members.filter(member => !member.user.bot);
 
 	// 봇 강제로 나가졌을때
-	if (newState.id == client.user.id) return player.delete(oldState.guild.id);
+	if (oldState.channelID !== null || (typeof oldState.channelID !== "undefined" && newState.id == client.user.id)) return player.delete(oldState.guild.id);
 
 	switch (stateChange.type) {
 		case "JOIN":
