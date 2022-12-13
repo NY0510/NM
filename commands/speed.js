@@ -34,7 +34,12 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 0.1 ~ 10 사이로 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		player.setTimescale(args[0]);
+		player.node.send({
+			timescale: {
+				speed: args[0],
+			},
+		});
+
 		message.reply({
 			embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **속도를 ${args[0]}배로 조절했어요**`).setColor(process.env.COLOR_SUCCESS)],
 		});
