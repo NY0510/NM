@@ -24,20 +24,19 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **조절할 속도를 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		if (isNaN(args[0]))
+		let speed = Math.round(args[0], 1) || 1;
+		if (speed < 1 || speed > 30)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 숫자로 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 1에서 30사이의 숫자만 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		if (args[0] < 0.1 || args[0] > 10)
-			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 0.1 ~ 10 사이로 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
-			});
+		if (!player.rotation) speed = speed * 0.1;
+		else speed = 0;
 
 		player.node.send({
 			guildId: message.guild.id,
 			timescale: {
-				speed: args[0],
+				speed: 1.2,
 			},
 		});
 
