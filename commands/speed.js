@@ -35,12 +35,13 @@ module.exports = {
 			});
 
 		player.node.send({
+			guildId: message.guild.id,
 			timescale: {
 				speed: args[0],
 			},
 		});
 
-		message.reply({
+		return message.reply({
 			embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **속도를 ${args[0]}배로 조절했어요**`).setColor(process.env.COLOR_SUCCESS)],
 		});
 	},
