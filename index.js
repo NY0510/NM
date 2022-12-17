@@ -43,5 +43,5 @@ fs.readdirSync("./commands")
 	});
 
 client.login(process.env.BOT_TOKEN).catch(e => {
-	console.log(`[Error]`.red, "Invalid or No Bot Token Provided.".green);
+	console.log(`[Error]`.red, "Invalid or No Bot Token Provided.".white);
 });
