@@ -16,6 +16,10 @@
 		"description": "현재 재생중인 노래를 중지하고 대기열을 초기화해요"
 	},
 	{
+		"cmd": "remove",
+		"description": "재생목록에서 노래를 삭제해요"
+	},
+	{
 		"cmd": "volume",
 		"description": "볼륨을 설정해요"
 	},

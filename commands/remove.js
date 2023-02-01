@@ -21,16 +21,14 @@ module.exports = {
         });
 
         const index = args - 1
-        if (player.queue.size > index)
-        {
+        if (player.queue.size > index) {
             const title = player.queue[index].title
             player.queue.remove(index)
             return message.reply({
                 embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **${title} 삭제 완료**`).setColor(process.env.COLOR_NORMAL)],
             });
         }
-        else
-        {
+        else {
             return message.reply({
                 embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **존재하지 않는 번호에요**`).setColor(process.env.COLOR_ERROR)],
             });
