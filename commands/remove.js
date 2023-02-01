@@ -20,8 +20,8 @@ module.exports = {
             embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **이 서버에서 재생중인 음악이 없어요**`).setColor(process.env.COLOR_ERROR)],
         });
 
-        const index = args - 1
-        if (player.queue.size > index) {
+        const index = (Object.keys(args).length == 0) ? 0 : args - 1
+        if (0 <= index && index < player.queue.size) {
             const title = player.queue[index].title
             player.queue.remove(index)
             return message.reply({
