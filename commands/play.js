@@ -22,7 +22,7 @@ module.exports = {
 			voiceChannel: channel.id,
 			textChannel: message.channel.id,
 			selfDeafen: true,
-			volume: 50,
+			volume: 70,
 		});
 		const bindChannel = client.channels.cache.get(player.textChannel);
 
