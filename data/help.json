@@ -17,7 +17,11 @@
 	},
 	{
 		"cmd": "remove",
-		"description": "재생목록에서 노래를 삭제해요"
+		"description": "대기열에서 노래를 삭제해요"
+	},
+	{
+		"cmd": "shuffle",
+		"description": "재생중인 대기열을 섞어요"
 	},
 	{
 		"cmd": "volume",
