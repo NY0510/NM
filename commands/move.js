@@ -48,6 +48,6 @@ module.exports = {
 			});
 		}
 
-		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏩ **${args[0]}**초로 이동했어요!`).setColor(process.env.COLOR_NORMAL)] });
+		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏩ **${args[0]}**초로 이동했어요`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };

@@ -17,7 +17,7 @@ module.exports = {
 
 		// if (!channel)
 		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 		//
 		// 	});
 
@@ -29,7 +29,7 @@ module.exports = {
 		player.setTrackRepeat(!player.trackRepeat);
 
 		return message.reply({
-			embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요!**`).setColor(process.env.COLOR_NORMAL)],
+			embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 		});
 	},
 };

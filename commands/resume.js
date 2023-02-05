@@ -17,7 +17,7 @@ module.exports = {
 
 		// if (!channel)
 		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 		// 	});
 
 		if (channel.id !== player.voiceChannel)
@@ -27,10 +27,10 @@ module.exports = {
 
 		if (!player.paused)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **일시정지 상태가 아니에요!**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **일시정지 상태가 아니에요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		player.pause(false);
-		return message.reply({ embeds: [new EmbedBuilder().setDescription(`▶️ **일시정지를 해제했어요!**`).setColor(process.env.COLOR_NORMAL)] });
+		return message.reply({ embeds: [new EmbedBuilder().setDescription(`▶️ **일시정지를 해제했어요**`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };

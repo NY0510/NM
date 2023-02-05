@@ -23,7 +23,7 @@ module.exports = {
 
 		// if (!channel)
 		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 		//
 		// 	});
 
@@ -39,7 +39,7 @@ module.exports = {
 
 		player.setVolume(volume);
 		message.reply({
-			embeds: [new EmbedBuilder().setTitle(`🔊 볼륨을 **\`${volume}%\`**(으)로 변경했어요!`).setColor(process.env.COLOR_NORMAL)],
+			embeds: [new EmbedBuilder().setTitle(`🔊 볼륨을 **\`${volume}%\`**(으)로 변경했어요`).setColor(process.env.COLOR_NORMAL)],
 		});
 	},
 };

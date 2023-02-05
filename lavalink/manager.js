@@ -47,8 +47,8 @@ module.exports = client => {
 					.get(player.textChannel)
 					.send({ embeds: [new EmbedBuilder().setDescription("🎵 **대기열에 있는 음악을 모두 재생했어요**").setColor(process.env.COLOR_NORMAL)] });
 
-				new Promise(resolve => setTimeout(resolve, 2000));
-				// wait(2000);
+				// new Promise(resolve => setTimeout(resolve, 2000));
+				wait(2000);
 				player.destroy();
 			});
 

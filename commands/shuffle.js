@@ -2,8 +2,8 @@ require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-	name: "rotation",
-	aliases: ["회전", "갯ㅁ샤ㅐㅜ", "3d", "3D"],
+	name: "shuffle",
+	aliases: ["셔플", "섞기", "노ㅕㄹ릳"],
 
 	run: async (client, message, args) => {
 		const player = client.manager.get(message.guild.id);
@@ -26,34 +26,10 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **저와 같은 음성채널에 접속해 있지 않아요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		let speed = Math.round(args[0], 1) || 2;
-		if (speed < 1 || speed > 30)
-			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **속도는 1에서 30사이의 숫자만 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
-			});
-
-		if (!player.rotation) speed = speed * 0.1;
-		else speed = 0;
-
-		// console.log(speed);
-
-		player.node.send({
-			op: "filters",
-			guildId: message.guild.id,
-			rotation: {
-				rotationHz: speed,
-			},
-		});
-		player.rotation = !player.rotation;
+		player.queue.shuffle();
 
 		return message.reply({
-			embeds: [
-				new EmbedBuilder()
-					.setDescription(
-						`${process.env.EMOJI_CHECK} **3D 오디오 효과를 ${player.rotation ? "설정" : "해제"}했어요 ${player.rotation ? `(${Math.round(speed * 10)})` : ""}**`
-					)
-					.setColor(process.env.COLOR_NORMAL),
-			],
+			embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **재생중인 대기열을 섞었어요**`).setColor(process.env.COLOR_NORMAL)],
 		});
 	},
 };

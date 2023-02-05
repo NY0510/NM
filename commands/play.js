@@ -14,7 +14,7 @@ module.exports = {
 
 		if (!channel)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		const player = await client.manager.create({
@@ -43,7 +43,7 @@ module.exports = {
 
 		if (!query)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **검색어를 입력해주세요!**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **검색어를 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		// if (!urlRegex(query))

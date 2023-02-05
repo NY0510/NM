@@ -16,7 +16,7 @@ module.exports = {
 
 		// if (!channel)
 		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 		//
 		// 	});
 
@@ -27,6 +27,6 @@ module.exports = {
 
 		player.queue.clear();
 		player.stop();
-		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏹️ **재생중인 음악을 정지하고 대기열을 비웠어요!**`).setColor(process.env.COLOR_NORMAL)] });
+		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏹️ **재생중인 음악을 정지하고 대기열을 비웠어요**`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };

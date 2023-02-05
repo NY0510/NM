@@ -40,7 +40,7 @@ module.exports = async (client, oldState, newState) => {
 			if (stateChange.members.size === 1 && player.paused) {
 				client.channels.cache
 					.get(String(player.textChannel))
-					.send({ embeds: [new EmbedBuilder().setTitle("▶️ 일시정지를 해제했어요!").setColor(process.env.COLOR_NORMAL)] });
+					.send({ embeds: [new EmbedBuilder().setTitle("▶️ 일시정지를 해제했어요").setColor(process.env.COLOR_NORMAL)] });
 
 				player.pause(false);
 			}

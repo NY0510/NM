@@ -17,7 +17,7 @@ module.exports = {
 
 		// if (!channel)
 		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요!**`).setColor(process.env.COLOR_ERROR)],
+		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
 		// 	});
 
 		if (channel.id !== player.voiceChannel)
@@ -27,10 +27,10 @@ module.exports = {
 
 		if (player.paused)
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음악이 이미 일시정지 상태에요!**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음악이 이미 일시정지 상태에요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		player.pause(true);
-		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏸️ **재샹중인 음악을 일시정지 했어요!**`).setColor(process.env.COLOR_NORMAL)] });
+		return message.reply({ embeds: [new EmbedBuilder().setDescription(`⏸️ **재샹중인 음악을 일시정지 했어요**`).setColor(process.env.COLOR_NORMAL)] });
 	},
 };

@@ -7,7 +7,7 @@ module.exports = (client, guild) => {
 	client.channels.cache.get(process.env.JOIN_LOG_CHANNEL_ID).send({
 		embeds: [
 			new EmbedBuilder()
-				.setTitle(`${process.env.EMOJI_CHECK} 서버에 초대받았어요!`)
+				.setTitle(`${process.env.EMOJI_CHECK} 서버에 초대받았어요`)
 				.addFields(
 					{
 						name: "이름",
