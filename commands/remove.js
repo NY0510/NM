@@ -28,7 +28,7 @@ module.exports = {
 			});
 		} else {
 			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **존재하지 않는 번호에요**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **올바른 숫자를 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 		}
 	},

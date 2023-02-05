@@ -26,9 +26,19 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **저와 같은 음성채널에 접속해 있지 않아요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		player.stop();
-		return message.reply({
-			embeds: [new EmbedBuilder().setDescription(`⏭️ **음악을 스킵했어요**`).setColor(process.env.COLOR_NORMAL)],
-		});
+		if (args[0]) {
+			const skipto = parseInt(args[0]);
+			if (isNaN(skipto) || skipto < 1 || skipto > player.queue.length)
+				return message.reply({
+					embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **올바른 숫자를 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
+				});
+
+			player.queue.remove(0, skipto - 1);
+		} else {
+			player.stop();
+			return message.reply({
+				embeds: [new EmbedBuilder().setDescription(`⏭️ **음악을 스킵했어요**`).setColor(process.env.COLOR_NORMAL)],
+			});
+		}
 	},
 };
