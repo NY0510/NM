@@ -3,7 +3,7 @@ const prograss_bar = {
 	rightindicator: "]",
 
 	slider: "●",
-	size: 25,
+	size: 20,
 	line: "▬",
 };
 
