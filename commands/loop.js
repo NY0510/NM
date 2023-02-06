@@ -26,17 +26,31 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **저와 같은 음성채널에 접속해 있지 않아요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		if (!args[0]) mode = "track";
-		else mode = "queue";
+		if (!args[0]) {
+			player.repeatState = player.repeatState == 0 ? 1 : player.repeatState == 1 ? 2 : 0;
+			player.setTrackRepeat(!player.trackRepeat);
+			return message.reply({
+				embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.repeatState ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+			});
+		} else if (args[0] == "queue") {
+			player.repeatState = player.repeatState == 0 ? 1 : player.repeatState == 1 ? 2 : 0;
+			player.setQueueRepeat(!player.queueRepeat);
+			return message.reply({
+				embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.repeatState ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+			});
+		}
 
-		mode == "track" ? player.setTrackRepeat(!player.trackRepeat) : player.setQueueRepeat(!player.queueRepeat);
+		// if (!args[0]) mode = "track";
+		// else mode = "queue";
 
-		return message.reply({
-			embeds: [
-				new EmbedBuilder()
-					.setDescription(`🔁 **${mode == "track" ? "현재 곡" : "대기열"} 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`)
-					.setColor(process.env.COLOR_NORMAL),
-			],
-		});
+		// mode == "track" ? player.setTrackRepeat(!player.trackRepeat) : player.setQueueRepeat(!player.queueRepeat);
+
+		// return message.reply({
+		// 	embeds: [
+		// 		new EmbedBuilder()
+		// 			.setDescription(`🔁 **${mode == "track" ? "현재 곡" : "대기열"} 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`)
+		// 			.setColor(process.env.COLOR_NORMAL),
+		// 	],
+		// });
 	},
 };
