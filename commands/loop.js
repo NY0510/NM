@@ -15,42 +15,45 @@ module.exports = {
 
 		const { channel } = message.member.voice;
 
-		// if (!channel)
-		// 	return message.reply({
-		// 		embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **음성 채널에 먼저 접속하세요**`).setColor(process.env.COLOR_ERROR)],
-		//
-		// 	});
-
 		if (channel.id !== player.voiceChannel)
 			return message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **저와 같은 음성채널에 접속해 있지 않아요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		if (!args[0]) {
-			player.repeatState = player.repeatState == 0 ? 1 : player.repeatState == 1 ? 2 : 0;
-			player.setTrackRepeat(!player.trackRepeat);
-			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.repeatState ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
-			});
-		} else if (args[0] == "queue") {
-			player.repeatState = player.repeatState == 0 ? 1 : player.repeatState == 1 ? 2 : 0;
-			player.setQueueRepeat(!player.queueRepeat);
-			return message.reply({
-				embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.repeatState ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
-			});
-		}
-
-		// if (!args[0]) mode = "track";
-		// else mode = "queue";
-
-		// mode == "track" ? player.setTrackRepeat(!player.trackRepeat) : player.setQueueRepeat(!player.queueRepeat);
+		// player.setTrackRepeat(!player.trackRepeat);
 
 		// return message.reply({
-		// 	embeds: [
-		// 		new EmbedBuilder()
-		// 			.setDescription(`🔁 **${mode == "track" ? "현재 곡" : "대기열"} 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`)
-		// 			.setColor(process.env.COLOR_NORMAL),
-		// 	],
+		// 	embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 		// });
+
+		if (args[0] === "track" || !args[0]) {
+			if (player.trackRepeat === false) {
+				await player.setTrackRepeat(true);
+
+				return message.reply({
+					embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+				});
+			} else {
+				await player.setTrackRepeat(false);
+
+				return message.reply({
+					embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+				});
+			}
+		} else if (args[0] === "queue") {
+			if (player.queueRepeat === true) {
+				await player.setQueueRepeat(false);
+
+				return message.reply({
+					embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.queueRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+				});
+			} else {
+				await player.setQueueRepeat(true);
+
+				return message.reply({
+					embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.queueRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
+				});
+			}
+		}
 	},
 };
