@@ -32,7 +32,7 @@
 		"description": "현재 재생중인 노래를 확인해요"
 	},
 	{
-		"cmd": "loop",
+		"cmd": "loop <queue | track>",
 		"description": "반복 재생을 설정해요"
 	},
 	{
