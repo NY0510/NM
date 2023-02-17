@@ -2,7 +2,6 @@
 	"name": "nm",
 	"version": "1.0.0",
 	"main": "index.js",
-	"devDependencies": {},
 	"scripts": {
 		"start": "node index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +16,7 @@
 		"discord.js": "^14.6.0",
 		"dotenv": "^16.0.3",
 		"erela.js": "^2.4.0",
-		"erela.js-filters": "^1.2.7"
+		"erela.js-filters": "^1.2.7",
+		"request": "^2.88.2"
 	}
 }
