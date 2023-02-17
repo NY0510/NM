@@ -62,5 +62,9 @@
 	{
 		"cmd": "rotation",
 		"description": "3D 회전 효과를 설정해요"
+	},
+	{
+		"cmd": "melon",
+		"description": "멜론차트 순위 50위 곡들을 재생해요"
 	}
 ]
