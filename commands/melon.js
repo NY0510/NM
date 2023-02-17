@@ -73,6 +73,8 @@ module.exports = {
 									.setColor(process.env.COLOR_NORMAL),
 							],
 						});
+
+						if (!player.playing && !player.paused && i == 1) player.play();
 					}
 
 					// await data.forEach(async (song, index) => {
@@ -88,7 +90,6 @@ module.exports = {
 					// 	});
 					// });
 
-					if (!player.playing && !player.paused) player.play();
 					return await msg.edit({
 						embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **멜론차트를 불러왔어요**`).setColor(process.env.COLOR_NORMAL)],
 					});
