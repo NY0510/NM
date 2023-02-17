@@ -3,7 +3,7 @@ const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "volume",
-	aliases: ["음량", "패ㅣㅕㅡㄷ"],
+	aliases: ["음량", "패ㅣㅕㅡㄷ", "vol"],
 
 	run: async (client, message, args) => {
 		const player = client.manager.get(message.guild.id);
