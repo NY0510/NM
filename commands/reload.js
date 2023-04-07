@@ -10,19 +10,33 @@ module.exports = {
 
 		if (message.author.id !== ownerID) return;
 		if (!args[0])
-			return message.channel.send({
-				embeds: [new EmbedBuilder().setTitle("Error").setDescription(`Please specify a command to reloa1111111111111d.`).setColor(process.env.COLOR_ERROR)],
+			return await message.reply({
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} 리로드 할 모듈 이름을 입력해주세요`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		if (!client.commands.has(args[0]))
-			return message.channel.send({
-				embeds: [new EmbedBuilder().setTitle("Error").setDescription(`The command \`${args[0]}\` doesn't seem to exist.`).setColor(process.env.COLOR_ERROR)],
+			return await message.reply({
+				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} ${args[0]} 모듈은 존재하지 않아요`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		delete require.cache[require.resolve(`./${args[0]}.js`)];
-		client.commands.delete(args[0]);
+		await message
+			.reply({ embeds: [new EmbedBuilder().setTitle(`<a:loading:1088966142560841789> ${args[0]} 모듈 리로드 중`).setColor(process.env.COLOR_NORMAL)] })
+			.then(async msg => {
+				try {
+					delete require.cache[require.resolve(`./${args[0]}.js`)];
+					client.commands.delete(args[0]);
 
-		client.commands.set(args[0], require(`./${args[0]}.js`));
-		message.channel.send({ embeds: [new EmbedBuilder().setTitle(`Command \`${args[0]}\` has been reloaded!`).setColor(process.env.COLOR_NORMAL)] });
+					client.commands.set(args[0], require(`./${args[0]}.js`));
+				} catch (e) {
+					msg.edit({
+						embeds: [
+							new EmbedBuilder()
+								.setDescription(`${process.env.EMOJI_X} ${args[0]} 모듈을 리로드 하는 도중 문제가 발생했어요\n` + "```\n" + String(e.stack) + "\n```")
+								.setColor(process.env.COLOR_ERROR),
+						],
+					});
+				}
+				msg.edit({ embeds: [new EmbedBuilder().setTitle(`<a:loading:1088966142560841789> ${args[0]} 모듈 리로드 완료!`).setColor(process.env.COLOR_NORMAL)] });
+			});
 	},
 };
