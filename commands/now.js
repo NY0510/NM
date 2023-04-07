@@ -31,9 +31,9 @@ module.exports = {
 					.setTitle(`🎵 현재 재생중인 음악`)
 					.setThumbnail(`https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`)
 					.setDescription(
-						`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)}\n**\`${timeFormat(player.position)} / ${timeFormat(
+						`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)}\n**${timeFormat(player.position)} / ${timeFormat(
 							player.duration
-						)}**\``
+						)}**`
 					)
 					.addFields(
 						{
