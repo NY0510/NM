@@ -6,7 +6,7 @@ module.exports = {
 
 	run: async (client, message, args) => {
 		const startTime = Date.now();
-		const e = new EmbedBuilder().setDescription("**지연시간 측정111111111111중...**").setColor(0x212326);
+		const e = new EmbedBuilder().setDescription("**지연시간 측정중...**").setColor(0x212326);
 
 		await message.reply({ embeds: [e] }).then(async msg => {
 			const botLatency = Date.now() - startTime;
