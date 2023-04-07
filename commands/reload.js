@@ -10,7 +10,9 @@ module.exports = {
 
 		if (message.author.id !== ownerID) return;
 		if (!args[0])
-			return message.channel.send({ embeds: [new EmbedBuilder().setTitle("Error").setDescription(`Please specify a command to reload.`).setColor(process.env.COLOR_ERROR)] });
+			return message.channel.send({
+				embeds: [new EmbedBuilder().setTitle("Error").setDescription(`Please specify a command to reloa1111111111111d.`).setColor(process.env.COLOR_ERROR)],
+			});
 
 		if (!client.commands.has(args[0]))
 			return message.channel.send({
@@ -22,7 +24,5 @@ module.exports = {
 
 		client.commands.set(args[0], require(`./${args[0]}.js`));
 		message.channel.send({ embeds: [new EmbedBuilder().setTitle(`Command \`${args[0]}\` has been reloaded!`).setColor(process.env.COLOR_NORMAL)] });
-
-		console.log(`Command \`${args[0]}\` has been reloaded.`);
 	},
 };
