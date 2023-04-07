@@ -30,7 +30,11 @@ module.exports = {
 				new EmbedBuilder()
 					.setTitle(`🎵 현재 재생중인 음악`)
 					.setThumbnail(`https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`)
-					.setDescription(`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)}`)
+					.setDescription(
+						`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)} ${timeFormat(player.position)} / ${timeFormat(
+							player.duration
+						)}`
+					)
 					.addFields(
 						{
 							name: "⌛ 곡 길이",
