@@ -58,7 +58,7 @@ module.exports = {
 
 					const data = JSON.parse(body).data;
 
-					for (let i = 0; i < data.length; i++) {
+					for (let i = 0; i < 50; i++) {
 						const res = await client.manager.search(`${data[i].title} ${data[i].singer}`, message.author);
 						if (!res || !res.tracks[0])
 							return await bindChannel.send({
@@ -69,7 +69,7 @@ module.exports = {
 						await msg.edit({
 							embeds: [
 								new EmbedBuilder()
-									.setDescription(`${process.env.EMOJI_LOADING} **멜론차트를 100곡을 불러오는 중이에요 (${i + 1}/${data.length})**`)
+									.setDescription(`${process.env.EMOJI_LOADING} **멜론차트를 50곡을 불러오는 중이에요 (${i + 1}/${data.length})**`)
 									.setColor(process.env.COLOR_NORMAL),
 							],
 						});
