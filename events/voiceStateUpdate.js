@@ -5,7 +5,7 @@ module.exports = async (client, oldState, newState) => {
 	const checkInactivity = async () => {
 		console.log("11111111111111111111111111111");
 		// Check if the player is paused or if there are any members in the voice channel
-		if (player.paused || stateChange.members.size > 0) return;
+		// if (player.paused || stateChange.members.size > 0) return;
 		console.log("2222222222222222222222222");
 
 		// Wait for 10 minutes (600,000 ms) of inactivity
