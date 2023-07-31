@@ -25,11 +25,7 @@ module.exports = {
 		player.queue.clear();
 
 		message.channel.send({
-			embeds: [
-				new EmbedBuilder()
-					.setDescription(`${process.env.EMOJI_CHECK} **${title} 대기열에 있는 노래 ${previousQueueSize}곡을 비웠어요**`)
-					.setColor(process.env.COLOR_NORMAL),
-			],
+			embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **대기열에 있는 노래 ${previousQueueSize}곡을 비웠어요**`).setColor(process.env.COLOR_NORMAL)],
 		});
 	},
 };
