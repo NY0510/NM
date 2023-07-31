@@ -27,13 +27,8 @@ module.exports = {
 		const ownerID = process.env.BOT_OWNER_ID;
 		if (message.author.id !== ownerID) return;
 
-		console.log(args);
-		const evalCommand = args.shift();
-		console.log(evalCommand);
-
 		try {
-			const evaled = eval(evalCommand);
-			console.log(evaled);
+			const evaled = eval(args);
 
 			const cleaned = await clean(evaled);
 			if (cleaned.length > 2000) {
