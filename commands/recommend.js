@@ -29,7 +29,7 @@ module.exports = {
 			});
 
 		console.log("aaaaaaaaaa");
-		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
+		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId).suggestion;
 		console.log(recommendVideos);
 
 		let videoCount = 0;
