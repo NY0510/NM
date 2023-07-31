@@ -11,7 +11,7 @@ module.exports = {
 
 		if (!args[1])
 			return await message.reply({
-				embeds: [new EmbedBuilder().setDescription(`**${process.env.EMOJI_X} 리로드 할 모듈 이름을 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
+				embeds: [new EmbedBuilder().setDescription(`**${process.env.EMOJI_X} 모듈 이름을 입력해주세요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		if (!client.commands.has(args[1]))
