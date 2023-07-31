@@ -1,6 +1,7 @@
 require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "eval",
