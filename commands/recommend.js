@@ -38,6 +38,7 @@ module.exports = {
 			videoCount++;
 			console.log(`Video count: ${videoCount}`);
 		});
+		console.log(`Video count: ${videoCount}`);
 
 		await message.channel.send({
 			embeds: [
