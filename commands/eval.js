@@ -24,7 +24,7 @@ module.exports = {
 			// fs.writeFileSync(filePath, result);
 
 			// message.reply("파일 참고", { files: [filePath] });
-			message.reply({ embeds: [new EmbedBuilder().setDescription(`test`).setColor(process.env.COLOR_ERROR)], files: ["../NM.psd"] });
+			message.reply({ embeds: [new EmbedBuilder().setDescription(`test`).setColor(process.env.COLOR_ERROR)], files: ["./NM.psd"] });
 
 			// fs.unlinkSync(filePath);
 		}
