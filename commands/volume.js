@@ -16,7 +16,7 @@ module.exports = {
 
 		if (!volume)
 			return message.reply({
-				embeds: [new EmbedBuilder().setTitle(`🔊 현재 볼륨은 **\`${player.volume}%\`**에요`).setColor(process.env.COLOR_NORMAL)],
+				embeds: [new EmbedBuilder().setTitle(`🔊 현재 볼륨은 **\`${player.volume * 2}%\`**에요`).setColor(process.env.COLOR_NORMAL)],
 			});
 
 		const { channel } = message.member.voice;
@@ -37,7 +37,7 @@ module.exports = {
 				embeds: [new EmbedBuilder().setTitle(`${process.env.EMOJI_X} 볼륨은 1에서 100사이의 숫자만 입력해주세요`).setColor(process.env.COLOR_ERROR)],
 			});
 
-		player.setVolume(volume);
+		player.setVolume(Math.round(volume * 0.5));
 		message.reply({
 			embeds: [new EmbedBuilder().setTitle(`🔊 볼륨을 **\`${volume}%\`**(으)로 변경했어요`).setColor(process.env.COLOR_NORMAL)],
 		});
