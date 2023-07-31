@@ -1,5 +1,6 @@
 require("dotenv").config();
 const fs = require("fs");
+const path = require("path");
 
 module.exports = {
 	name: "eval",
@@ -18,7 +19,7 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			const filePath = "../data/eval_result.txt";
+			const filePath = path.join("..", "data", "results.txt");
 			fs.writeFileSync(filePath, result);
 
 			message.reply("파일 참고", { files: [filePath] });
