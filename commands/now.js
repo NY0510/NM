@@ -32,7 +32,7 @@ module.exports = {
 					.setThumbnail(`https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`)
 					.setDescription(
 						`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)}\n**${timeFormat(player.position)} / ${timeFormat(
-							player.current.duration
+							player[0].current.duration
 						)}**`
 					)
 					.addFields(
