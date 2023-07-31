@@ -33,10 +33,10 @@ module.exports = {
 		let videoCount = 0;
 		Object.keys(recommendVideos.suggestion).forEach(async video => {
 			const videoId = recommendVideos.suggestion[video].id;
-			const res = player.search(`https://youtube.com/watch?v=${videoId}`, message.author);
+			const res = await player.search(`https://youtube.com/watch?v=${videoId}`, message.author);
 
 			console.log(videoId);
-			player.queue.add(res.tracks, message.author);
+			await player.queue.add(res.tracks, message.author);
 			videoCount++;
 		});
 
