@@ -39,6 +39,7 @@ module.exports = {
 				],
 			})
 			.then(async msg => {
+				console.log("aaaaaaaaa");
 				const data = recommendVideos.suggestion;
 
 				for (let i = 0; i < 10; i++) {
