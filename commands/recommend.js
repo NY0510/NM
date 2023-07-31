@@ -30,10 +30,10 @@ module.exports = {
 
 		console.log("aaaaaaaaaa");
 		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
-		console.log(recommendVideos.suggestion[0]);
+		console.log(recommendVideos.suggestion);
 
 		let videoCount = 0;
-		for (video in recommendVideos) {
+		for (video in recommendVideos.suggestion) {
 			console.log(video);
 			await player.queue.add(player.search(`https://youtube.com/watch?v=${video.id}`, message.author).tracks, message.author);
 			videoCount++;
