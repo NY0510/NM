@@ -31,7 +31,7 @@ module.exports = {
 		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId).suggestion;
 
 		let videoCount = 0;
-		recommendVideos.forEach(async video => {
+		Object.keys(recommendVideos).forEach(async video => {
 			await player.search(`https://youtube.com/watch?v=${video.id}`, message.author);
 			videoCount++;
 		});
