@@ -18,12 +18,12 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			const filename = "eval_result.txt";
-			fs.writeFileSync(filename, result);
+			const filePath = "../data/eval_result.txt";
+			fs.writeFileSync(filePath, result);
 
-			message.reply("파일 참고", { files: [filename] });
+			message.reply("파일 참고", { files: [filePath] });
 
-			fs.unlinkSync(filename);
+			fs.unlinkSync(filePath);
 		}
 
 		const ownerID = process.env.BOT_OWNER_ID;
