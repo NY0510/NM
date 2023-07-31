@@ -28,6 +28,8 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X}} **현재 재생중인 곡이 유튜브 영상이 아니여서 해당 기능 이용이 불가능해요`)],
 			});
 
+		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
+
 		await message
 			.reply({
 				embeds: [
@@ -37,7 +39,6 @@ module.exports = {
 				],
 			})
 			.then(async msg => {
-				const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
 				const data = recommendVideos.suggestion;
 
 				for (let i = 0; i < 10; i++) {
