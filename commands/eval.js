@@ -32,14 +32,14 @@ module.exports = {
 		try {
 			const evaled = eval(args.join(" "));
 
-			const cleaned = await clean(evaled);
+			const cleaned = (await clean(evaled).length) <= 0 ? "" : await clean(evaled);
 			if (cleaned.length > 2000) {
 				await handleLargeResult(cleaned);
 			} else {
 				message.reply(`\`\`\`js\n${cleaned}\n\`\`\``);
 			}
 		} catch (err) {
-			const cleaned = await clean(err);
+			const cleaned = (await clean(err).length) <= 0 ? "" : await clean(err);
 			if (cleaned.length > 2000) {
 				await handleLargeResult(cleaned);
 			} else {
