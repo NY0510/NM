@@ -29,6 +29,7 @@ module.exports = {
 
 		try {
 			const evaled = eval(args);
+			console.log(evaled);
 
 			const cleaned = await clean(evaled.join(" "));
 			if (cleaned.length > 2000) {
