@@ -9,7 +9,7 @@ module.exports = async (client, oldState, newState) => {
 				player.destroy();
 				client.channels.cache
 					.get(String(player.textChannel))
-					.send({ embeds: [new EmbedBuilder().setTitle("👋 음성채널이 비어서, 음악을 종료하고 퇴장했어요").setColor(process.env.COLOR_NORMAL)] });
+					.send({ embeds: [new EmbedBuilder().setTitle("👋 음성채널이 10분동안 비어있어서, 음악을 종료하고 퇴장했어요").setColor(process.env.COLOR_NORMAL)] });
 			}
 		}, 600000); // 10 minutes (600,000 ms)
 	};
