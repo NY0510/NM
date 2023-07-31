@@ -23,7 +23,7 @@ module.exports = {
 			const filePath = "result.txt";
 			fs.writeFileSync(filePath, result);
 
-			await message.reply({ content: "파일 참고" });
+			await message.reply("파일 참고");
 			await message.send({ files: [filePath] });
 
 			fs.unlinkSync(filePath);
