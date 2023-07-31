@@ -28,17 +28,16 @@ module.exports = {
 		if (message.author.id !== ownerID) return;
 
 		try {
-			const evaled = eval(args);
-			console.log(evaled);
+			const evaled = eval(args.join(" "));
 
-			const cleaned = await clean(evaled.join(" "));
+			const cleaned = await clean(evaled);
 			if (cleaned.length > 2000) {
 				await handleLargeResult(cleaned);
 			} else {
 				message.reply(`\`\`\`js\n${cleaned}\n\`\`\``);
 			}
 		} catch (err) {
-			const cleaned = await clean(err.join(" "));
+			const cleaned = await clean(err);
 			if (cleaned.length > 2000) {
 				await handleLargeResult(cleaned);
 			} else {
