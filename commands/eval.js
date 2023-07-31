@@ -1,4 +1,5 @@
 require("dotenv").config();
+const { MessageAttachment } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -21,7 +22,8 @@ module.exports = {
 		async function handleLargeResult(result) {
 			const filePath = "result.txt";
 			fs.writeFile(filePath, result, () => {
-				message.reply("파일 참고", { files: [filePath] });
+				const file = new MessageAttachment(Buffer.from(result), "result.txt");
+				message.reply("파일 참고", { files: [file] });
 				fs.unlinkSync(filePath);
 			});
 		}
