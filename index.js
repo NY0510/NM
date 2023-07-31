@@ -4,7 +4,14 @@ const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
 
 const client = new Client({
-	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildVoiceStates,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMessageReactions,
+	],
 });
 
 // Lavalink 메니저
@@ -42,7 +49,6 @@ fs.readdirSync("./commands")
 		}
 	});
 
-client.login(process.env.BOT_TOKEN)
-.catch(e => {
+client.login(process.env.BOT_TOKEN).catch(e => {
 	console.log(`[Error]`.red, "Invalid or No Bot Token Provided.".white);
 });
