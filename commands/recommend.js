@@ -32,6 +32,7 @@ module.exports = {
 
 		let videoCount = 0;
 		for (video in recommendVideos) {
+			console.log(video);
 			await player.queue.add(player.search(`https://youtube.com/watch?v=${video.id}`, message.author).tracks, message.author);
 			videoCount++;
 		}
