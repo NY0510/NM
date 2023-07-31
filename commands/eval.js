@@ -28,6 +28,8 @@ module.exports = {
 		if (message.author.id !== ownerID) return;
 
 		const evalCommand = args.shift();
+		console.log(evalCommand);
+		console.log(args);
 
 		try {
 			const evaled = eval(evalCommand);
