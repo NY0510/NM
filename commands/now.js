@@ -25,7 +25,6 @@ module.exports = {
 		// 	});
 
 		title = textLengthOverCut(player.queue.current.title.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
-		console.log(player.queue[0]);
 		return message.reply({
 			embeds: [
 				new EmbedBuilder()
@@ -33,7 +32,7 @@ module.exports = {
 					.setThumbnail(`https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`)
 					.setDescription(
 						`${player.playing ? "▶️" : "⏸️"} **[${title}](${player.queue.current.uri})**\n\n${progressBar(player)}\n**${timeFormat(player.position)} / ${timeFormat(
-							player.queue[0].current.duration
+							player.queue.current.duration
 						)}**`
 					)
 					.addFields(
