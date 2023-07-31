@@ -14,7 +14,7 @@ module.exports = {
 			await message.reply("모듈 이름을 입력해주세요");
 			return;
 		}
-		if (!(client.commands.has(args[1]) || fs.existsSync(`./${args[1]}.js`))) {
+		if (!client.commands.has(args[1]) || !fs.existsSync(`./${args[1]}.js`)) {
 			await message.react(process.env.EMOJI_X);
 			await message.reply(`${args[1]} 모듈은 존재하지 않아요`);
 			return;
