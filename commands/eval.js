@@ -19,7 +19,7 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			const filePath = fs.writeFileSync(filePath, result);
+			// const filePath = fs.writeFileSync(filePath, result);
 
 			message.reply("파일 참고", { files: ["../NM.psd"] });
 
