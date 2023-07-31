@@ -29,6 +29,7 @@ module.exports = {
 			});
 
 		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId).suggestion[0];
+		console.log(recommendVideos);
 
 		let videoCount = 0;
 		for (video in recommendVideos) {
