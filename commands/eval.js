@@ -21,8 +21,7 @@ module.exports = {
 			const filename = "eval_result.txt";
 			fs.writeFileSync(filename, result);
 
-			const attachment = new MessageAttachment(filename);
-			message.reply("파일 참고", attachment);
+			message.reply("파일 참고", { files: [filename] });
 
 			fs.unlinkSync(filename);
 		}
