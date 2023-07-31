@@ -70,5 +70,9 @@
 	{
 		"cmd": "melon",
 		"description": "멜론차트 순위 50위 곡들을 재생해요"
+	},
+	{
+		"cmd": "recommend",
+		"description": "현재 재생중인 노래를 기반으로 한 추천 노래 10곡을 추가해요"
 	}
 ]
