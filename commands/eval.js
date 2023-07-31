@@ -20,13 +20,13 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			// const filePath =
-			// fs.writeFileSync(filePath, result);
+			const filePath = "result.txt";
+			fs.writeFileSync(filePath, result);
 
-			// message.reply("파일 참고", { files: [filePath] });
-			message.reply("a", { files: ["./NM.psd"] });
+			message.reply("파일 참고");
+			message.reply({ files: [filePath] });
 
-			// fs.unlinkSync(filePath);
+			fs.unlinkSync(filePath);
 		}
 
 		const ownerID = process.env.BOT_OWNER_ID;
