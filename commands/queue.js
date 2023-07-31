@@ -21,7 +21,7 @@ module.exports = {
 		const restTracks = queue.length - tracks.length;
 
 		if (queue.current) {
-			title = textLengthOverCut(queue.current.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...");
+			title = textLengthOverCut(queue.current.title.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
 
 			e.setDescription(
 				`**💿 [${title}](${queue.current.uri})**\n\n${

@@ -83,7 +83,7 @@ module.exports = {
 				player.queue.add(res.tracks, message.author);
 
 				if (!player.playing && !player.paused && !player.queue.size) player.play();
-				title = textLengthOverCut(res.tracks[0].title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...");
+				title = textLengthOverCut(res.tracks[0].title.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
 				e = new EmbedBuilder()
 					.setTitle(`💿 음악을 대기열에 추가했어요`)
 					.setDescription(`**[${title}](${res.tracks[0].uri})**`)
@@ -115,7 +115,7 @@ module.exports = {
 
 				if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.length) player.play();
 
-				title = textLengthOverCut(res.playlist.name.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...");
+				title = textLengthOverCut(res.playlist.name.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
 				return message.reply({
 					embeds: [
 						new EmbedBuilder()
@@ -143,7 +143,7 @@ module.exports = {
 				const track = res.tracks[0];
 				player.queue.add(track, message.author);
 
-				title = textLengthOverCut(res.tracks[0].title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...");
+				title = textLengthOverCut(res.tracks[0].title.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
 				e = new EmbedBuilder()
 					.setTitle(`💿 음악을 대기열에 추가했어요`)
 					.setDescription(`**[${title}](${res.tracks[0].uri})**`)
