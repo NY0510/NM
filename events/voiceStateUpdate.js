@@ -3,22 +3,15 @@ const { EmbedBuilder } = require("discord.js");
 
 module.exports = async (client, oldState, newState) => {
 	const checkInactivity = async () => {
-		console.log("11111111111111111111111111111");
-		// Check if the player is paused or if there are any members in the voice channel
-		// if (player.paused || stateChange.members.size > 0) return;
-		console.log("2222222222222222222222222");
-
-		// Wait for 10 minutes (600,000 ms) of inactivity
 		await setTimeout(() => {
 			// Double-check if the player is still paused and there are no members in the voice channel
-			console.log("33333333333333333");
 			if (player.paused && stateChange.members.size === 0) {
 				player.destroy();
 				client.channels.cache
 					.get(String(player.textChannel))
 					.send({ embeds: [new EmbedBuilder().setTitle("👋 음성채널이 비어서, 음악을 종료하고 퇴장했어요").setColor(process.env.COLOR_NORMAL)] });
 			}
-		}, 10000); // 10 minutes (600,000 ms)
+		}, 600000); // 10 minutes (600,000 ms)
 	};
 
 	// 길드와 현재 재생중인 플레이어를 가져오고
