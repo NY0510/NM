@@ -24,7 +24,7 @@ module.exports = {
 			fs.writeFileSync(filePath, result);
 
 			await message.reply("파일 참고");
-			await message.send({ files: [filePath] });
+			await message.channel.send({ files: [filePath] });
 
 			fs.unlinkSync(filePath);
 		}
