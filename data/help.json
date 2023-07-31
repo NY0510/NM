@@ -16,6 +16,10 @@
 		"description": "현재 재생중인 노래를 중지하고 대기열을 초기화해요"
 	},
 	{
+		"cmd": "clear",
+		"description": "대기열에 있는 노래들을 모두 삭제해요"
+	},
+	{
 		"cmd": "remove",
 		"description": "대기열에서 노래를 삭제해요"
 	},

@@ -22,7 +22,7 @@ module.exports = {
 				new EmbedBuilder()
 					.setTitle("🎯 도움말")
 					.setColor(process.env.COLOR_NORMAL)
-					.setImage("https://dl.ny64.kr/img/help.png")
+					.setImage("https://bucket.ny64.kr/Photos/help.jpg")
 					.setDescription(
 						revised + `\n\n:paperclip:  **[Invite link](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=37080128&scope=bot)**`
 					),
