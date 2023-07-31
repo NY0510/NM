@@ -22,7 +22,7 @@ module.exports = {
 		async function handleLargeResult(result) {
 			const filePath = "result.txt";
 			fs.writeFile(filePath, result, () => {
-				const file = new MessageAttachment(Buffer.from(result), "result.txt");
+				const file = MessageAttachment(filePath, "result.txt"); // 수정된 부분
 				message.reply("파일 참고", { files: [file] });
 				fs.unlinkSync(filePath);
 			});
