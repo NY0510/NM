@@ -1,5 +1,4 @@
 require("dotenv").config();
-const { MessageAttachment } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -20,12 +19,11 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			const filePath = "result.txt";
-			fs.writeFile(filePath, result, () => {
-				const file = MessageAttachment(filePath, "result.txt"); // 수정된 부분
-				message.reply("파일 참고", { files: [file] });
-				fs.unlinkSync(filePath);
-			});
+			const filePath = fs.writeFileSync(filePath, result);
+
+			message.reply("파일 참고", { files: ["../NM.psd"] });
+
+			// fs.unlinkSync(filePath);
 		}
 
 		const ownerID = process.env.BOT_OWNER_ID;
