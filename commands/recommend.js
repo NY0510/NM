@@ -40,6 +40,7 @@ module.exports = {
 			})
 			.then(async msg => {
 				const data = recommendVideos.suggestion;
+				console.log(data);
 
 				for (let i = 0; i < 10; i++) {
 					const res = await client.manager.search(`https://youtube.com/watch?v=${data[i].id} 노래`, message.author);
