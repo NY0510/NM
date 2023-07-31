@@ -32,7 +32,6 @@ module.exports = {
 		try {
 			const evaled = eval(args.join(" "));
 
-			console.log(evaled);
 			const cleaned = await clean(evaled);
 			if (cleaned.length > 2000) {
 				await handleLargeResult(cleaned);
