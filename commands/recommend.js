@@ -28,12 +28,10 @@ module.exports = {
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X}} **현재 재생중인 곡이 유튜브 영상이 아니여서 해당 기능 이용이 불가능해요`)],
 			});
 
-		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
+		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId).suggestion[0];
 
 		let videoCount = 0;
-		console.log(recommendVideos.suggestion);
 		for (video in recommendVideos) {
-			console.log(video);
 			await player.queue.add(player.search(`https://youtube.com/watch?v=${video.id}`, message.author).tracks, message.author);
 			videoCount++;
 		}
