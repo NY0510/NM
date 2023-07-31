@@ -41,6 +41,7 @@ module.exports = {
 					await message.react(process.env.EMOJI_X);
 				}
 				await message.react(process.env.EMOJI_CHECK);
+				return;
 			}
 
 			case "unload": {
@@ -51,6 +52,7 @@ module.exports = {
 					await message.react(process.env.EMOJI_X);
 				}
 				await message.react(process.env.EMOJI_CHECK);
+				return;
 			}
 		}
 	},
