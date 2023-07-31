@@ -31,12 +31,13 @@ module.exports = {
 		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
 
 		let videoCount = 0;
-		Object.keys(recommendVideos.suggestion).forEach(async video => {
+		for (const video of recommendVideos) {
 			const videoId = recommendVideos.suggestion[video].id;
-			console.log(videoId);
-			await player.queue.add(player.search(`https://youtube.com/watch?v=${videoId}`, message.author).tracks, message.author);
+			const res = player.search(`https://youtube.com/watch?v=${videoId}`, message.author);
+
+			player.queue.add(res.tracks, message.author);
 			videoCount++;
-		});
+		}
 
 		message.channel.send({
 			embeds: [
