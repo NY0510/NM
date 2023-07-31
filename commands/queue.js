@@ -25,8 +25,9 @@ module.exports = {
 
 			e.setDescription(
 				`**💿 [${title}](${queue.current.uri})**\n\n${
-					tracks.map((track, i) => `**${i + 1}. [${textLengthOverCut(track.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...")}](${track.uri})**`).join("\n") +
-					(restTracks > 0 ? `\n\n**+${restTracks}곡**` : "")
+					tracks
+						.map((track, i) => `**\\${i + 1}. [${textLengthOverCut(track.title.replaceAll("[", "［").replaceAll("]", "］"), 30, " ...")}](${track.uri})**`)
+						.join("\n") + (restTracks > 0 ? `\n\n**+${restTracks}곡**` : "")
 				}`
 			);
 		}
