@@ -25,7 +25,7 @@ module.exports = {
 		// 	});
 
 		title = textLengthOverCut(player.queue.current.title.replaceAll("[", "\u200B[").replaceAll("]", "]\u200B"), 30, " ...");
-		console.log(player[0]);
+		console.log(player.queue[0]);
 		return message.reply({
 			embeds: [
 				new EmbedBuilder()
