@@ -20,7 +20,7 @@ module.exports = {
 		}
 
 		async function handleLargeResult(result) {
-			const filePath = "result.txt";
+			const filePath = "result.js";
 			fs.writeFileSync(filePath, result);
 
 			await message.reply("파일 참고");
