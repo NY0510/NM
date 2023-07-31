@@ -42,7 +42,7 @@ module.exports = {
 				const data = recommendVideos.suggestion;
 
 				for (let i = 0; i < 10; i++) {
-					const res = await client.manager.search(`https://youtube.com/watch?v=${data.id}`, message.author);
+					const res = await client.manager.search(`https://youtube.com/watch?v=${data[i].id}`, message.author);
 					if (!res || !res.tracks[0])
 						return await bindChannel.send({
 							embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **추천 노래를 불러오는데 실패했어요**`).setColor(process.env.COLOR_ERROR)],
@@ -52,7 +52,7 @@ module.exports = {
 					await msg.edit({
 						embeds: [
 							new EmbedBuilder()
-								.setDescription(`${process.env.EMOJI_LOADING} **추천 노래 10곡을 불러오는 중이에요 (${i + 1}/${data.length})**`)
+								.setDescription(`${process.env.EMOJI_LOADING} **추천 노래 10곡을 불러오는 중이에요 (${i + 1}/10)**`)
 								.setColor(process.env.COLOR_NORMAL),
 						],
 					});
