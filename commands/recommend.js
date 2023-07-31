@@ -39,11 +39,10 @@ module.exports = {
 				],
 			})
 			.then(async msg => {
-				console.log("aaaaaaaaa");
 				const data = recommendVideos.suggestion;
 
 				for (let i = 0; i < 10; i++) {
-					const res = await client.manager.search(`https://youtube.com/watch?v=${data[i].id}`, message.author);
+					const res = await client.manager.search(`https://youtube.com/watch?v=${data[i].id} 노래`, message.author);
 					if (!res || !res.tracks[0])
 						return await bindChannel.send({
 							embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **추천 노래를 불러오는데 실패했어요**`).setColor(process.env.COLOR_ERROR)],
