@@ -30,21 +30,56 @@ module.exports = {
 
 		const recommendVideos = await youtubesearchapi.GetVideoDetails(nowPlayingYoutubeId);
 
-		let videoCount = 0;
-		Object.keys(recommendVideos.suggestion).forEach(async video => {
-			const videoId = recommendVideos.suggestion[video].id;
-			const res = await client.manager.search(`https://youtube.com/watch?v=${videoId}`, message.author);
-			await player.queue.add(res.tracks, message.author);
-			videoCount++;
-		});
-		console.log(`Video count: ${videoCount}`);
+		await message
+			.reply({
+				embeds: [
+					new EmbedBuilder()
+						.setDescription(`${process.env.EMOJI_LOADING} **현재 재생중인 곡을 기반으로 한 추천 노래 10곡을 불러오는 중이에요**`)
+						.setColor(process.env.COLOR_NORMAL),
+				],
+			})
+			.then(async msg => {
+				const data = recommendVideos.suggestion;
 
-		await message.channel.send({
-			embeds: [
-				new EmbedBuilder()
-					.setDescription(`${process.env.EMOJI_CHECK} **현재 재생중인 곡을 기반으로 한 추천 노래 ${videoCount}개를 추가했어요**`)
-					.setColor(process.env.COLOR_NORMAL),
-			],
-		});
+				for (let i = 0; i < 10; i++) {
+					const res = await client.manager.search(`https://youtube.com/watch?v=${data.id}`, message.author);
+					if (!res || !res.tracks[0])
+						return await bindChannel.send({
+							embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **추천 노래를 불러오는데 실패했어요**`).setColor(process.env.COLOR_ERROR)],
+						});
+
+					player.queue.add(res.tracks[0]);
+					await msg.edit({
+						embeds: [
+							new EmbedBuilder()
+								.setDescription(`${process.env.EMOJI_LOADING} **추천 노래 10곡을 불러오는 중이에요 (${i + 1}/${data.length})**`)
+								.setColor(process.env.COLOR_NORMAL),
+						],
+					});
+
+					if (!player.playing && !player.paused && i == 1) player.play();
+				}
+
+				return await msg.edit({
+					embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_CHECK} **추천 노래를 불러왔어요**`).setColor(process.env.COLOR_NORMAL)],
+				});
+			});
+
+		// let videoCount = 0;
+		// Object.keys(recommendVideos.suggestion).forEach(async video => {
+		// 	const videoId = recommendVideos.suggestion[video].id;
+		// 	const res = await client.manager.search(`https://youtube.com/watch?v=${videoId}`, message.author);
+		// 	await player.queue.add(res.tracks, message.author);
+		// 	videoCount++;
+		// });
+		// console.log(`Video count: ${videoCount}`);
+
+		// await message.channel.send({
+		// 	embeds: [
+		// 		new EmbedBuilder()
+		// 			.setDescription(`${process.env.EMOJI_CHECK} **현재 재생중인 곡을 기반으로 한 추천 노래 ${videoCount}개를 추가했어요**`)
+		// 			.setColor(process.env.COLOR_NORMAL),
+		// 	],
+		// });
 	},
 };
