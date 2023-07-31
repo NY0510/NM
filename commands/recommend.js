@@ -34,13 +34,11 @@ module.exports = {
 		Object.keys(recommendVideos.suggestion).forEach(async video => {
 			const videoId = recommendVideos.suggestion[video].id;
 			const res = await client.manager.search(`https://youtube.com/watch?v=${videoId}`, message.author);
-
-			console.log(videoId);
 			await player.queue.add(res.tracks, message.author);
 			videoCount++;
 		});
 
-		message.channel.send({
+		await message.channel.send({
 			embeds: [
 				new EmbedBuilder()
 					.setDescription(`${process.env.EMOJI_CHECK} **현재 재생중인 곡을 기반으로 한 추천 노래 ${videoCount}개를 추가했어요**`)
