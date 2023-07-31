@@ -27,7 +27,7 @@ module.exports = {
 		const ownerID = process.env.BOT_OWNER_ID;
 		if (message.author.id !== ownerID) return;
 
-		const evalCommand = args.slice(1);
+		const evalCommand = args.shift();
 
 		try {
 			const evaled = eval(evalCommand);
