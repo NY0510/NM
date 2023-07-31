@@ -23,10 +23,10 @@ module.exports = {
 			const filePath = "result.txt";
 			fs.writeFileSync(filePath, result);
 
-			message.reply("파일 참고");
-			message.reply({ files: [filePath] });
+			await message.reply({ content: "파일 참고" });
+			await message.send({ files: [filePath] });
 
-			// fs.unlinkSync(filePath);
+			fs.unlinkSync(filePath);
 		}
 
 		const ownerID = process.env.BOT_OWNER_ID;
