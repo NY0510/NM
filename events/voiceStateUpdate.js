@@ -15,7 +15,7 @@ module.exports = async (client, oldState, newState) => {
 					.get(String(player.textChannel))
 					.send({ embeds: [new EmbedBuilder().setTitle("👋 음성채널이 비어서, 음악을 종료하고 퇴장했어요").setColor(process.env.COLOR_NORMAL)] });
 			}
-		}, 600000); // 10 minutes (600,000 ms)
+		}, 10000); // 10 minutes (600,000 ms)
 	};
 
 	// 길드와 현재 재생중인 플레이어를 가져오고
