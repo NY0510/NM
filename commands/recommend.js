@@ -36,7 +36,6 @@ module.exports = {
 			const res = await client.manager.search(`https://youtube.com/watch?v=${videoId}`, message.author);
 			await player.queue.add(res.tracks, message.author);
 			videoCount++;
-			console.log(`Video count: ${videoCount}`);
 		});
 		console.log(`Video count: ${videoCount}`);
 
