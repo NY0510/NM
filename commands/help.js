@@ -17,7 +17,7 @@ module.exports = {
 			.map(x => `**${process.env.BOT_PREFIX}${x.trim()}**`)
 			.join("\n");
 
-		message.channel.send({
+		message.reply({
 			embeds: [
 				new EmbedBuilder()
 					.setTitle("🎯 도움말")
