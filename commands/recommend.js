@@ -41,7 +41,7 @@ module.exports = {
 			})
 			.then(async msg => {
 				const data = recommendVideos.suggestion;
-				console.log(data);
+				// console.log(data);
 
 				for (let i = 0; i < 10; i++) {
 					const res = await client.manager.search(data[i].title, message.author);
