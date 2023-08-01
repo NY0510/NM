@@ -33,7 +33,7 @@ module.exports = {
 		if (message.author.id !== ownerID) return;
 
 		try {
-			const evaled = eval(args.join(" "));
+			const evaled = eval(`const player = client.manager.get(message.guild.id); ${args.join(" ")}`);
 
 			const cleaned = await clean(evaled);
 			if (cleaned.length > 2000) {

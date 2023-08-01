@@ -34,7 +34,7 @@ module.exports = client => {
 					embeds: [
 						new EmbedBuilder()
 							.setDescription(
-								`[${track.title.replaceAll("[", "\u200B").replaceAll("]", "]\u200B")}](${track.uri}) is playing in **${bindChannel.guild.name}** (${
+								`[${track.title.replaceAll("[", "\u200B").replaceAll("]", "\u200B]\u200B")}](${track.uri}) is playing in **${bindChannel.guild.name}** (${
 									bindChannel.guild.id
 								}) by **${track.requester.username}#${track.requester.discriminator}** (${track.requester.id})`
 							)
