@@ -22,6 +22,7 @@ module.exports = {
 			});
 
 		const nowPlayingYoutubeId = player.queue.current.uri.split("?v=")[1];
+		const bindChannel = client.channels.cache.get(player.textChannel);
 
 		if (!nowPlayingYoutubeId)
 			return message.reply({
@@ -53,7 +54,7 @@ module.exports = {
 					await msg.edit({
 						embeds: [
 							new EmbedBuilder()
-								.setDescription(`${process.env.EMOJI_LOADING} **추천 노래 10곡을 불러오는 중이에요 (${i + 1}/10)**`)
+								.setDescription(`${process.env.EMOJI_LOADING} **현재 재생중인 곡을 기반으로 한 추천 노래 10곡을 불러오는 중이에요 (${i + 1}/10)**`)
 								.setColor(process.env.COLOR_NORMAL),
 						],
 					});
