@@ -9,20 +9,20 @@ module.exports = {
 		const player = client.manager.get(message.guild.id);
 
 		if (!player)
-			return message.reply({
+			return await message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **이 서버에서 재생중인 음악이 없어요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		const { channel } = message.member.voice;
 
 		if (channel.id !== player.voiceChannel)
-			return message.reply({
+			return await message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **저와 같은 음성채널에 접속해 있지 않아요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
 		// player.setTrackRepeat(!player.trackRepeat);
 
-		// return message.reply({
+		// return await message.reply({
 		// 	embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 		// });
 
@@ -30,13 +30,13 @@ module.exports = {
 			if (player.trackRepeat === false) {
 				await player.setTrackRepeat(true);
 
-				return message.reply({
+				return await message.reply({
 					embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 				});
 			} else {
 				await player.setTrackRepeat(false);
 
-				return message.reply({
+				return await message.reply({
 					embeds: [new EmbedBuilder().setDescription(`🔁 **현재 곡 반복을 ${player.trackRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 				});
 			}
@@ -44,13 +44,13 @@ module.exports = {
 			if (player.queueRepeat === true) {
 				await player.setQueueRepeat(false);
 
-				return message.reply({
+				return await message.reply({
 					embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.queueRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 				});
 			} else {
 				await player.setQueueRepeat(true);
 
-				return message.reply({
+				return await message.reply({
 					embeds: [new EmbedBuilder().setDescription(`🔁 **대기열 반복을 ${player.queueRepeat ? "설정" : "해제"}했어요**`).setColor(process.env.COLOR_NORMAL)],
 				});
 			}

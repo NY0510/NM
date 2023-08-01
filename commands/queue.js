@@ -10,7 +10,7 @@ module.exports = {
 		const player = client.manager.get(message.guild.id);
 
 		if (!player)
-			return message.reply({
+			return await message.reply({
 				embeds: [new EmbedBuilder().setDescription(`${process.env.EMOJI_X} **이 서버에서 재생중인 음악이 없어요**`).setColor(process.env.COLOR_ERROR)],
 			});
 
@@ -37,6 +37,6 @@ module.exports = {
 			);
 		}
 
-		return message.reply({ embeds: [e] });
+		return await message.reply({ embeds: [e] });
 	},
 };
