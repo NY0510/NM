@@ -7,7 +7,7 @@ module.exports.textLengthOverCut = (txt, len, lastTxt) => {
 		// 기본값
 		lastTxt = "...";
 	}
-	if (txt.length > len) {
+	if (Array.from(txt).length > len) {
 		txt = txt.substr(0, len) + lastTxt;
 	}
 	return txt;
