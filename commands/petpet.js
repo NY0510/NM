@@ -8,5 +8,6 @@ module.exports = {
 	run: async (client, message, args) => {
 		let animatedGif = await petPetGif(message.author.avatarURL);
 		console.log(animatedGif);
+		await message.reply("a");
 	},
 };
