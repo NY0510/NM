@@ -12,7 +12,7 @@ module.exports = {
 
 		// Generate the petpet gif and send it in the message
 		try {
-			let animatedGif = await petPetGif(avatarURL, { resolution: 512 });
+			let animatedGif = await petPetGif(avatarURL, { resolution: 256 });
 			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
 		} catch (error) {
 			return message.reply("`ERROR` " + error.message);
