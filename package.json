@@ -17,6 +17,7 @@
 		"dotenv": "^16.0.3",
 		"erela.js": "^2.4.0",
 		"erela.js-filters": "^1.2.7",
+		"pet-pet-gif": "^1.0.9",
 		"request": "^2.88.2",
 		"youtube-search-api": "^1.2.0"
 	}
