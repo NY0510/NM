@@ -1,4 +1,3 @@
-require("dotenv").config();
 const petPetGif = require("pet-pet-gif");
 
 module.exports = {
@@ -6,7 +5,17 @@ module.exports = {
 	aliases: ["pet", "쓰담", "ㅔㄷ섿ㅅ", "ㅔㄷㅅ"],
 
 	run: async (client, message, args) => {
-		let animatedGif = await petPetGif(message.author.avatarURL({ extension: "png", size: 512 }));
-		await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
+		let user = message.mentions.users.first() || message.author;
+
+		// Get the user's avatar URL
+		const avatarURL = user.avatarURL({ format: "png", size: 512 });
+
+		// Generate the petpet gif and send it in the message
+		try {
+			let animatedGif = await petPetGif(avatarURL);
+			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
+		} catch (error) {
+			return message.reply("`ERROR`");
+		}
 	},
 };
