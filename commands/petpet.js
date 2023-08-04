@@ -15,7 +15,7 @@ module.exports = {
 			let animatedGif = await petPetGif(avatarURL);
 			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
 		} catch (error) {
-			return message.reply("`ERROR`" + error.message);
+			return message.reply("`ERROR` " + error.message);
 		}
 	},
 };
