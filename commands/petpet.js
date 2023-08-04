@@ -22,7 +22,7 @@ module.exports = {
 			}
 
 			const avatarURL = user.displayAvatarURL({ extension: "png", size: 512 });
-			let animatedGif = await petPetGif(avatarURL);
+			let animatedGif = await petPetGif(avatarURL, { resolution: 256 });
 			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
 		} catch (error) {
 			return await message.reply("`ERROR` " + error.message);
