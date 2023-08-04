@@ -8,7 +8,7 @@ module.exports = {
 		let user = message.mentions.users.first() || message.author;
 
 		// Get the user's avatar URL
-		const avatarURL = user.avatarURL({ format: "png", size: 512 });
+		const avatarURL = user.avatarURL({ extension: "png", size: 512 });
 
 		// Generate the petpet gif and send it in the message
 		try {
