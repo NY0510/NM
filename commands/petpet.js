@@ -6,8 +6,8 @@ module.exports = {
 	aliases: ["pet", "쓰담", "ㅔㄷ섿ㅅ", "ㅔㄷㅅ"],
 
 	run: async (client, message, args) => {
+		await message.reply("a");
 		let animatedGif = await petPetGif(message.author.avatarURL);
 		console.log(animatedGif);
-		await message.reply("a");
 	},
 };
