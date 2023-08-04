@@ -7,7 +7,6 @@ module.exports = {
 
 	run: async (client, message, args) => {
 		let animatedGif = await petPetGif(message.author.avatarURL({ extension: "png", size: 256 }));
-		await message.reply("a");
-		console.log(animatedGif);
+		await message.reply({ files: [animatedGif] });
 	},
 };
