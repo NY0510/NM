@@ -7,9 +7,8 @@ module.exports = {
 	run: async (client, message, args) => {
 		let user = message.mentions.users.first() || message.author;
 
-		const avatarURL = user.avatarURL({ extension: "png", size: 512 });
-
 		try {
+			const avatarURL = user.avatarURL({ extension: "png", size: 512 });
 			let animatedGif = await petPetGif(avatarURL);
 			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
 		} catch (error) {
