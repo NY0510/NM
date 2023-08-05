@@ -21,7 +21,7 @@ module.exports = {
 				user = message.author;
 			}
 
-			const avatarURL = user.displayAvatarURL({ extension: "png", size: 512 });
+			const avatarURL = user.displayAvatarURL({ extension: "gif", size: 512 }) || user.displayAvatarURL({ extension: "png", size: 512 });
 			let animatedGif = await petPetGif(avatarURL, { resolution: 256 });
 			await message.reply({ files: [{ attachment: animatedGif, name: "pet.gif" }] });
 		} catch (error) {
