@@ -50,6 +50,20 @@ module.exports = client => {
 				// new Promise(resolve => setTimeout(resolve, 2000));
 				wait(2000);
 				player.destroy();
+			})
+			.on("trackEnd", player => {
+				// 반복 구간 설정이 되어있다면 구간 반복 처리
+				if (player.loopData) {
+					const { startTime, endTime } = player.loopData;
+					player.seek(startTime);
+					player.play();
+
+					// 만약 노래가 반복 구간의 끝까지 재생되었다면 구간 반복 해제
+					if (player.position >= endTime) {
+						player.loopData = null;
+						player.setTrackRepeat(false);
+					}
+				}
 			});
 
 		client.on("raw", d => client.manager.updateVoiceState(d));
